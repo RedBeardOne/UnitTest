@@ -29,4 +29,14 @@ class MainTest {
         assertEquals("84kanh 121uo 80roti 102ro 97ll 121ruo 104ple", Utility.encryptThis("Thank you Piotr for all your help"));
         assertEquals("104olle 119drlo", Utility.encryptThis("hello world"));
     }
+
+    @Test
+    @DisplayName("Crypto")
+    void format() {
+        assertEquals("1 second", Utility.formatDuration(1));
+        assertEquals("1 minute and 2 seconds", Utility.formatDuration(62));
+        assertEquals("2 minutes", Utility.formatDuration(120));
+        assertEquals("1 hour", Utility.formatDuration(3600));
+        assertEquals("1 hour, 1 minute and 2 seconds", Utility.formatDuration(3662));
+    }
 }
