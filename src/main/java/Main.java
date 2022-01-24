@@ -8,5 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println(Utility.formatDuration(32_536_020));
+        System.out.println(Utility.formatDuration(0));
     }
 }

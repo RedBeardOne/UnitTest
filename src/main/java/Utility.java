@@ -41,60 +41,21 @@ public class Utility {
     }
 
     public static String formatDuration(int seconds) {
-        List<String> collect = new ArrayList<>();
-        String rez = "";
-        StringBuilder builder = new StringBuilder(rez);
-        int temp = 0;
-        if (seconds >= 0) {
-            int year = seconds / 31_536_000;
-            temp = seconds % 31_536_000;
+        String res = "";
+        int[] units = new int[] {31536000, 86400, 3600, 60, 1};
+        String[] labels = new String[] {"year", "day", "hour", "minute", "second"};
 
-            int day = temp / 86_400;
-            temp = temp % 86_400;
+        if (seconds == 0) return "now";
 
-            int hours = temp / 3600;
-            temp = temp % 3600;
-
-            int minutes = temp / 60;
-            temp = temp % 60;
-
-            if (year > 0 && year < 3) {
-                collect.add(String.format("%d year", year));
-            } else if (year >= 3) {
-                collect.add(String.format("%d years", year));
-            }
-            if (day == 1) {
-                collect.add(String.format("%d day", day));
-            } else if (day > 1) {
-                collect.add(String.format("%d days", day));
-            }
-            if (hours == 1) {
-                collect.add(String.format("%d hour", hours));
-            } else if (hours > 1) {
-                collect.add(String.format("%d hours", hours));
-            }
-            if (minutes == 1) {
-                collect.add(String.format("%d minute", minutes));
-            } else if (minutes > 1) {
-                collect.add(String.format("%d minutes", minutes));
-            }
-            if (temp == 1) {
-                collect.add(String.format("%d second", temp));
-            } else if (temp > 1) {
-                collect.add(String.format("%d seconds", temp));
-            }
-            int size = collect.size();
-            ListIterator<String> iter = collect.listIterator();
-            while (iter.hasNext()) {
-                builder.append(iter.next());
-                if (iter.hasNext() && iter.nextIndex() + 1 != size) {
-                    builder.append(", ");
-                } else if (iter.hasNext()) {
-                    builder.append(" and ");
-                }
+        for (int i = 0; i < 5; i++) {
+            if (seconds >= units[i]) {
+                int q = seconds / units[i];
+                seconds = seconds % units[i];
+                res += (res.equals("") ? "" : (seconds == 0 ? " and " : ", "))
+                        + q + " " + labels[i] + (q > 1 ? "s" : "");
             }
         }
-        return builder.toString();
+        return res;
     }
 
     private static boolean isNumber(String s) {
