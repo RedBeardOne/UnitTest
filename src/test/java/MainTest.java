@@ -34,6 +34,7 @@ class MainTest {
     @DisplayName("Crypto")
     void format() {
         assertEquals("1 second", Utility.formatDuration(1));
+
         assertEquals("1 minute and 2 seconds", Utility.formatDuration(62));
         assertEquals("2 minutes", Utility.formatDuration(120));
         assertEquals("1 hour", Utility.formatDuration(3600));

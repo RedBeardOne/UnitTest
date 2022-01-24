@@ -60,32 +60,27 @@ public class Utility {
 
             if (year > 0 && year < 3) {
                 collect.add(String.format("%d year", year));
-            }
-            if (year >= 3) {
+            } else if (year >= 3) {
                 collect.add(String.format("%d years", year));
             }
             if (day == 1) {
                 collect.add(String.format("%d day", day));
-            }
-            if (day > 1) {
+            } else if (day > 1) {
                 collect.add(String.format("%d days", day));
             }
             if (hours == 1) {
                 collect.add(String.format("%d hour", hours));
-            }
-            if (hours > 1) {
+            } else if (hours > 1) {
                 collect.add(String.format("%d hours", hours));
             }
             if (minutes == 1) {
                 collect.add(String.format("%d minute", minutes));
-            }
-            if (minutes > 1) {
+            } else if (minutes > 1) {
                 collect.add(String.format("%d minutes", minutes));
             }
             if (temp == 1) {
                 collect.add(String.format("%d second", temp));
-            }
-            if (temp > 1) {
+            } else if (temp > 1) {
                 collect.add(String.format("%d seconds", temp));
             }
             int size = collect.size();

@@ -7,6 +7,6 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(Utility.formatDuration(32_536_013));
+        System.out.println(Utility.formatDuration(32_536_020));
     }
 }
